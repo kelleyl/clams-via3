@@ -14,7 +14,7 @@ sleep 5
 if  [ "$BUILDPROJ" = "build-project" ]
 then
   PROJ_ID=$(curl -s --data @project_file.json 'http://0.0.0.0:9669' | jq ".pid")
-
+  echo $PROJ_ID >> /data/proj_id.txt
 #  PROJ_ID=$(curl -s --data @project_file.json 'http://0.0.0.0:9669' | python -c "import sys, json; l = ' '.join(sys.stdin.readlines()); print(l); print (json.loads(l)['pid'])")
 #  STRS=$(read -a arr <<< "$PROJ_ID")
 #  echo ${STRS[-1]}
