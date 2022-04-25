@@ -45,30 +45,15 @@ project["config"] = {
     }
 }
 project['attribute'] = {
-    "bars": {
+    "1": {
         "aname": "TEMPORAL-SEGMENTS",
         "anchor_id": "FILE1_Z2_XY0",
         "type": 4,
         "desc": "Temporal segment attribute added by default",
         "options": {
-        },
-        "default_option_id": ""
-    },
-    "slates": {
-        "aname": "TEMPORAL-SEGMENTS",
-        "anchor_id": "FILE1_Z2_XY0",
-        "type": 4,
-        "desc": "Temporal segment attribute added by default",
-        "options": {
-        },
-        "default_option_id": ""
-    },
-    "credits": {
-        "aname": "TEMPORAL-SEGMENTS",
-        "anchor_id": "FILE1_Z2_XY0",
-        "type": 4,
-        "desc": "",
-        "options": {
+            "0": "bars",
+            "1": "slates",
+            "2": "credits"
         },
         "default_option_id": ""
     }
