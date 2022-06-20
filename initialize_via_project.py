@@ -44,20 +44,15 @@ project["config"] = {
         "gtimeline_visible_row_count": "4"
     }
 }
-project['attribute'] = {
-    "1": {
-        "aname": "TEMPORAL-SEGMENTS",
-        "anchor_id": "FILE1_Z2_XY0",
-        "type": 4,
-        "desc": "Temporal segment attribute added by default",
-        "options": {
-            "0": "bars",
-            "1": "slates",
-            "2": "credits"
-        },
-        "default_option_id": ""
+if os.path.isfile(os.path.join("data", "annotation.json")):
+    with open(os.path.join("data", "annotation.json")) as conf_file:
+        project['attribute'] = json.load(conf_file)
+
+else:
+    project['attribute'] = {
     }
-}
+
 project['metadata'] = {}
 with open("project_file.json", 'w') as out:
     out.write(json.dumps(project))  ##todo 3/26/22 kelleylynch fix me
+    print (project["project"]["pid"])

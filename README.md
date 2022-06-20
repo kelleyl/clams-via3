@@ -24,6 +24,6 @@ If it is not the first time running the tool, next mount the via_data directory 
 ```docker run -p 9669:9669 -p 9779:9779 -v path/to/via_data/:/data/ -v path/to/media:/media/:ro --rm vps```
 
 If it is the first time running the tool with the dataset, include the argument build-project. This will initialize a new via project from the video files in the media directory.
-```docker run -p 9669:9669 -p 9779:9779 -v path/to/via_data/:/data/ -v path/to/media:/media/:ro --rm vps build-project ```
+```docker build . -t vps & docker run -p 9669:9669 -p 9779:9779 -v path/to/via_data/:/data/ -v path/to/media:/media/:ro --rm vps build-project ```
 
 The files in the media directory are mounted to a directory inside the container named `static`. The files from this directory will be served on port 9779. The via application is served at ```http://0.0.0.0:9779/via_template``` . 

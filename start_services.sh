@@ -15,18 +15,8 @@ if  [ "$BUILDPROJ" = "build-project" ]
 then
   PROJ_ID=$(curl -s --data @project_file.json 'http://0.0.0.0:9669' | jq ".pid")
   echo $PROJ_ID >> /data/proj_id.txt
-#  PROJ_ID=$(curl -s --data @project_file.json 'http://0.0.0.0:9669' | python -c "import sys, json; l = ' '.join(sys.stdin.readlines()); print(l); print (json.loads(l)['pid'])")
-#  STRS=$(read -a arr <<< "$PROJ_ID")
-#  echo ${STRS[-1]}
-
-  # modify load project in via app
-#  LOADSUB="<script>
-#                       _via_load_submodules = function(){
-#                           _via_share.pull(${PROJ_ID});
-#                       }
-#                   </script>"
-#  echo $LOADSUB >> /via/via-3.0.11/via_video_annotator.html
-fi
+  echo $PROJ_ID
+fi 
 
 gunicorn app:app -w 4 --threads 4 -b 0.0.0.0:9779
 
